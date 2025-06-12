@@ -1,0 +1,26 @@
+{
+    "include": [
+        "./public/**/*",
+        "./src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build",
+        "coverage",
+        "test",
+        "**/*.spec.ts"
+    ],
+    "compilerOptions": {
+        "target": "es6",
+        "module": "es6",
+        "outDir": "./dist",
+        "allowJs": true,
+        "checkJs": true,
+        "strict": true, // 总开关
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true
+    },
+}
