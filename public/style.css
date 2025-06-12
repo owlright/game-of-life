@@ -1,0 +1,61 @@
+html,
+body {
+    height: 100%;
+}
+
+/* 让 body 使用 flex 布局，并居中对齐 */
+body {
+    display: flex;
+    flex-direction: column;
+    /* 子元素垂直排列 */
+    /* justify-content: center; 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    height: 100vh;
+    /* 让 body 占满整个视口高度 */
+    margin: 0;
+    /* 去掉默认的 body 外边距 */
+    padding: 0;
+}
+
+#app {
+    /* margin-top: 24px; */
+    border: 5px solid #ccc;
+    /* 添加边框 */
+    margin-top: 0px;
+}
+
+canvas {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.buttons {
+    margin-top: 8px;
+}
+
+button {
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 0 4px;
+    width: 96px;
+    background-color: white;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+#log {
+    width: 60%; /* 设置宽度与 #app 一致 */
+    height: 100px; /* 设置高度 */
+    margin-top: 16px; /* 与按钮区域的间距 */
+    resize: none; /* 禁止用户调整大小 */
+    border: 1px solid #ccc; /* 添加边框 */
+    padding: 8px; /* 内边距 */
+    font-family: monospace; /* 使用等宽字体 */
+    background-color: #f9f9f9; /* 设置背景颜色 */
+    overflow-y: auto; /* 如果内容超出，显示滚动条 */
+}
