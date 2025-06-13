@@ -44,6 +44,23 @@ function createCanvas(logicalWidth, logicalHeight, gridSize) {
     return canvas;
 }
 
+// 获取 id 为 "log" 的日志区域
+const logTextarea = document.getElementById('log');
+
+/**
+ * 向日志文本框添加日志信息
+ * @param {string} message - 要显示的日志信息
+ */
+function log(message) {
+    if (logTextarea) {
+        /** @type {HTMLTextAreaElement} */(logTextarea).value += `${message}\n`; // 将日志信息追加到文本框中
+        /** @type {HTMLTextAreaElement} */(logTextarea).scrollTop = /** @type {HTMLTextAreaElement} */(logTextarea).scrollHeight; // 自动滚动到底部
+    } else {
+        console.error('无法找到 id 为 "log" 的日志文本框');
+    }
+}
+
 export default {
-    createCanvas: createCanvas
+    createCanvas,
+    log
 };
