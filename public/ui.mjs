@@ -1,5 +1,28 @@
 "use strict";
 /**
+ * 绘制网格
+ * @param {CanvasRenderingContext2D} ctx - 2D 绘图上下文
+ * @param {number} width - 画布宽度
+ * @param {number} height - 画布高度
+ * @param {number} gridSize - 网格大小
+ */
+function drawGrid(ctx, width, height, gridSize) {
+    ctx.strokeStyle = '#000'; // 设置网格线颜色为黑色
+    for (let x = 0; x <= width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+    }
+    for (let y = 0; y <= height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+    }
+}
+
+/**
  * 初始化并设置 canvas
  * @param {number} logicalWidth - 逻辑宽度
  * @param {number} logicalHeight - 逻辑高度
@@ -24,21 +47,7 @@ function createCanvas(logicalWidth, logicalHeight, gridSize) {
     if (ctx) {
         // 缩放绘图上下文以适应设备像素比
         ctx.scale(dpr, dpr);
-
-        // 绘制网格
-        ctx.strokeStyle = '#000'; // 设置网格线颜色为黑色
-        for (let x = 0; x <= logicalWidth; x += gridSize) {
-            ctx.beginPath();
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, logicalHeight);
-            ctx.stroke();
-        }
-        for (let y = 0; y <= logicalHeight; y += gridSize) {
-            ctx.beginPath();
-            ctx.moveTo(0, y);
-            ctx.lineTo(logicalWidth, y);
-            ctx.stroke();
-        }
+        drawGrid(ctx, logicalWidth, logicalHeight, gridSize); // 绘制网格
     }
 
     return canvas;
@@ -61,6 +70,7 @@ function log(message) {
 }
 
 export default {
+    drawGrid,
     createCanvas,
     log
 };
