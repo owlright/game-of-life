@@ -4,15 +4,17 @@ class LifeGameBoard {
     /**
      * 创建一个 LifeGameBoard 实例
      * @param {HTMLElement} htmlElem - 用于绘制游戏的 canvas 元素
-     * @param {number} width - 游戏板的宽度
-     * @param {number} height - 游戏板的高度
+     * @param {number} gridXNum - 游戏板的宽度
+     * @param {number} gridYNum - 游戏板的高度
      * @param {number} gridSize - 用于绘制游戏的 canvas 元素
      */
-    constructor(htmlElem, width, height, gridSize) {
-        this.width = width;
-        this.height = height;
+    constructor(htmlElem, gridXNum, gridYNum, gridSize) {
+        this.gridXNum = gridXNum;
+        this.gridYNum = gridYNum;
+        this.width = gridXNum * gridSize;
+        this.height = gridYNum * gridSize;
         this.gridSize = gridSize;
-        this.canvas = ui.createCanvas(width, height, gridSize);
+        this.canvas = ui.createCanvas(this.width, this.height, gridSize);
         this.context = this.canvas.getContext("2d");
         htmlElem.appendChild(this.canvas);
         this.name = "LifeGame";
